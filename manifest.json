@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "locale": "en_US.UTF-8",
+  "metadata": {
+    "appmode": "python-shiny",
+    "entrypoint": "app"
+  },
+  "python": {
+    "version": "3.12.3",
+    "package_manager": {
+      "name": "pip",
+      "version": "26.0.1",
+      "package_file": "requirements.txt"
+    }
+  },
+  "environment": {
+    "python": {
+      "requires": "~=3.12.0"
+    }
+  },
+  "files": {
+    "requirements.txt": {
+      "checksum": "23977ad59a3515c7fc4330869b3d5840"
+    },
+    ".dockerignore": {
+      "checksum": "ddc9bd8159a5d3713e2f7dbc6574b4e2"
+    },
+    ".gitignore": {
+      "checksum": "2f1db90d1ade375066544ac78ebc5eb4"
+    },
+    ".python-version": {
+      "checksum": "61939823fbcc7e8de3b61ab105331baf"
+    },
+    "Dockerfile": {
+      "checksum": "5be0ea94a0477fb4e3fc3edbef40881b"
+    },
+    "Procfile": {
+      "checksum": "d559383eaee05ecfe786dbfc356e35cf"
+    },
+    "README.md": {
+      "checksum": "5ed377be070c1704964af58e03b1f502"
+    },
+    "analysis.py": {
+      "checksum": "177fe9353c6035da2b6bd7d1b48838e1"
+    },
+    "app.py": {
+      "checksum": "acf2bb1f48752b80c6e424040e7299c3"
+    },
+    "flask_app.py": {
+      "checksum": "787ddfdee08e2682a73c7c47dcbdac3d"
+    },
+    "render.yaml": {
+      "checksum": "ad4a5201b34c73e155518f928a02058f"
+    },
+    "reports/discount_rates.png": {
+      "checksum": "83688d1a791e2c95749ffc85be41091d"
+    },
+    "reports/form_length_rates.png": {
+      "checksum": "6d190a3fdaef473046672529814028bf"
+    },
+    "reports/summary.csv": {
+      "checksum": "71cff3444ad2b56496ebed19b0417e7d"
+    },
+    "runtime.txt": {
+      "checksum": "46b813045068afab19a0653ca0f6e133"
+    },
+    "simulate.py": {
+      "checksum": "7f3e9658f84965ca1ca34abed21c7326"
+    },
+    "static/styles.css": {
+      "checksum": "78c41eb146ac1f6b40df65a929fa6f3d"
+    },
+    "templates/base.html": {
+      "checksum": "b91f8678175ba0c88430a5a61de5f7e9"
+    },
+    "templates/home.html": {
+      "checksum": "ae060b8416754cb68ae695fde0d2a627"
+    },
+    "templates/signup.html": {
+      "checksum": "0ecad5e56d4f5e155dc22277bedbaccd"
+    },
+    "templates/stats.html": {
+      "checksum": "9ec7a2c3745c628e741a821dc4707276"
+    },
+    "templates/thanks.html": {
+      "checksum": "742a01b81a8a37b48ae3cc4931f50b8e"
+    },
+    "wsgi.py": {
+      "checksum": "b924d1200008db06814c60678205ec3e"
+    }
+  }
+}

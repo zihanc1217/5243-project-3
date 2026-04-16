@@ -1,0 +1,11 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+ab_test.db
+reports
+.DS_Store
+.idea
+.vscode
+uploads

@@ -1,0 +1,8 @@
+shiny==1.4.0
+Flask==3.0.3
+gunicorn==22.0.0
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+statsmodels==0.14.2
+matplotlib==3.9.0

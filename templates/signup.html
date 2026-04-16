@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Create your account · Lumen Labs{% endblock %}
+
+{% block content %}
+<section class="signup">
+  <div class="signup-card">
+    <h1>Create your free account</h1>
+    <p class="signup-sub">
+      Join thousands of students using Lumen Labs to track their study
+      progress and connect with classmates.
+    </p>
+
+    <form action="{{ url_for('register') }}" method="post" class="stacked-form">
+      {% if variant == "B" %}
+      <label>
+        <span>Full name</span>
+        <input type="text" name="name" placeholder="Ada Lovelace" required />
+      </label>
+      {% endif %}
+
+      <label>
+        <span>Email address</span>
+        <input type="email" name="email" placeholder="you@example.com" required />
+      </label>
+
+      {% if variant == "B" %}
+      <label>
+        <span>School</span>
+        <input type="text" name="school" placeholder="Columbia University" required />
+      </label>
+      {% endif %}
+
+      <button type="submit" class="cta cta--wide">Create my account</button>
+    </form>
+
+    <p class="fine-print centered">
+      Already have an account? <a href="#">Sign in</a>
+    </p>
+  </div>
+
+  <aside class="signup-aside">
+    <h2>Why students love us</h2>
+    <ul>
+      <li>📚 Curated study resources from top schools</li>
+      <li>⏱️ Automatic progress tracking</li>
+      <li>🤝 Classmate matching and group chats</li>
+      <li>🎯 Goal planning with data-backed insights</li>
+    </ul>
+  </aside>
+</section>
+{% endblock %}
