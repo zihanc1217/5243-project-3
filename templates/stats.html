@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Live stats · Lumen Labs A/B{% endblock %}
+
+{% block content %}
+<section class="stats">
+  <h1>Live experiment stats</h1>
+  <p class="stats-sub">
+    Real-time counts of impressions and conversions for each experiment /
+    variant pair. Rates shown are conversion / impression.
+  </p>
+
+  {% set experiments = results | groupby('experiment') %}
+  {% for exp, rows in experiments %}
+  <div class="stats-card">
+    <h2>{{ exp.replace('_', ' ') | title }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Variant</th>
+          <th>Impressions</th>
+          <th>Conversions</th>
+          <th>Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td><strong>{{ r.variant }}</strong></td>
+          <td>{{ r.impressions }}</td>
+          <td>{{ r.conversions }}</td>
+          <td>{{ "%.2f%%" % (r.rate * 100) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="empty">No events collected yet. Visit the pages to generate data.</p>
+  {% endfor %}
+
+  <p class="fine-print">
+    For full statistical inference (confidence intervals, p-values, effect
+    sizes), run <code>python analysis.py</code>.
+  </p>
+</section>
+{% endblock %}

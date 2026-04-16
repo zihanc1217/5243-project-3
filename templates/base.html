@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="ab-variant" content="{{ variant | default('') }}" />
+  <title>{% block title %}A/B Experiment{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <nav class="topbar">
+    <a class="brand" href="{{ url_for('home') }}">Lumen&nbsp;Labs</a>
+    <div class="nav-links">
+      <a href="{{ url_for('home') }}">Newsletter</a>
+      <a href="{{ url_for('signup') }}">Register</a>
+      <a href="{{ url_for('stats') }}">Live stats</a>
+    </div>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>
+      Designed for an A/B-testing class project. Your variant for the
+      current experiment is <code>{{ variant | default('—') }}</code>.
+      Force a variant with <code>?group=A</code> or <code>?group=B</code>.
+    </p>
+  </footer>
+</body>
+</html>

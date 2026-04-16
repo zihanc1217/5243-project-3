@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Thank you! · Lumen Labs{% endblock %}
+
+{% block content %}
+<section class="thanks">
+  <div class="thanks-card">
+    <h1>You're in. 🎉</h1>
+    {% if experiment == "discount" %}
+      {% if variant == "B" %}
+      <p>
+        Thanks for subscribing! Your <strong>10% off coupon</strong> is on
+        its way to your inbox.
+      </p>
+      {% else %}
+      <p>Thanks for subscribing to the Lumen Labs newsletter.</p>
+      {% endif %}
+    {% elif experiment == "form_length" %}
+      <p>Your account has been created — welcome to Lumen Labs!</p>
+    {% else %}
+      <p>Form received. Thank you!</p>
+    {% endif %}
+
+    <div class="thanks-links">
+      <a class="cta" href="{{ url_for('home') }}">Back to home</a>
+      <a class="cta cta--ghost" href="{{ url_for('signup') }}">Register a friend</a>
+    </div>
+    <p class="fine-print">
+      Recorded variant: <code>{{ variant }}</code> · experiment:
+      <code>{{ experiment }}</code>
+    </p>
+  </div>
+</section>
+{% endblock %}
