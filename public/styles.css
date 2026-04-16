@@ -1,0 +1,279 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.5;
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --text: #1a1f36;
+  --muted: #667085;
+  --primary-a: #3652d9;
+  --primary-b: #11998e;
+  --danger: #b42318;
+  --border: #d7dcea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.topbar-nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.layout {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.layout-a .badge {
+  background: #e8ecff;
+  color: #3048bd;
+}
+
+.layout-b .badge {
+  background: #defcf5;
+  color: #0f736b;
+}
+
+h1 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cta,
+.secondary,
+.danger {
+  border: none;
+  border-radius: 10px;
+  padding: 0.72rem 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cta {
+  margin-top: 1rem;
+}
+
+.layout-a .cta {
+  background: var(--primary-a);
+  color: #fff;
+}
+
+.layout-b .cta {
+  background: var(--primary-b);
+  color: #fff;
+}
+
+.helper {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.features {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.feature-card h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.feature-card p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+}
+
+.signup {
+  margin-top: 1.3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.signup h2 {
+  margin-top: 0;
+}
+
+.signup form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: flex-end;
+}
+
+.signup label {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.signup input {
+  display: block;
+  width: min(340px, 100%);
+  padding: 0.65rem 0.7rem;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+}
+
+.secondary {
+  background: #1f2937;
+  color: #fff;
+}
+
+.danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.dashboard-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+}
+
+.dashboard-header h1 {
+  margin-bottom: 0.3rem;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.metric-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+.metric-value {
+  margin: 0.4rem 0 0;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.variant-table-wrap {
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.variant-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.variant-table th,
+.variant-table td {
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.significance-card {
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .layout,
+  .dashboard {
+    padding-top: 1rem;
+  }
+
+  .signup form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

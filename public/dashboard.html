@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A/B Test Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">QuickExperiment</div>
+      <nav class="topbar-nav">
+        <a href="/">Landing page</a>
+        <a href="/dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main class="dashboard">
+      <section class="dashboard-header">
+        <h1>Experiment dashboard</h1>
+        <p>Track visitors, events, conversion rates, and significance in real time.</p>
+        <div class="dashboard-actions">
+          <button id="refreshButton" class="secondary">Refresh results</button>
+          <button id="resetButton" class="danger">Reset experiment data</button>
+        </div>
+      </section>
+
+      <section class="metrics-grid">
+        <article class="metric-card">
+          <p class="metric-label">Total visitors</p>
+          <p class="metric-value" id="totalVisitors">0</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Total events</p>
+          <p class="metric-value" id="totalEvents">0</p>
+        </article>
+      </section>
+
+      <section class="variant-table-wrap">
+        <table class="variant-table">
+          <thead>
+            <tr>
+              <th>Variant</th>
+              <th>Visitors</th>
+              <th>Page views</th>
+              <th>CTA clicks</th>
+              <th>Signups</th>
+              <th>CTA rate</th>
+              <th>Signup rate</th>
+            </tr>
+          </thead>
+          <tbody id="variantTableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="significance-card">
+        <h2>Statistical significance</h2>
+        <p id="significanceText">Not enough data yet.</p>
+      </section>
+    </main>
+
+    <script src="/dashboard.js" defer></script>
+  </body>
+</html>
