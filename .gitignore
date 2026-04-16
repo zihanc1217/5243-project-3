@@ -12,6 +12,12 @@ reports/
 *.sqlite3
 
 rsconnect-python/
+rsconnect/
+
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
 
 .DS_Store
 .idea/

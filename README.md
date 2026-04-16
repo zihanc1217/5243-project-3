@@ -1,7 +1,24 @@
 # 5243 Project 3 — Designing and Conducting an A/B Test
 
-A **Shiny for Python** web application and analysis pipeline for two
-A/B-testing experiments described in the project brief:
+Two interchangeable implementations of the same A/B-testing website are
+included in this repo:
+
+| Implementation         | Location        | Entrypoint     | Typical host            |
+|------------------------|-----------------|----------------|--------------------------|
+| **R Shiny** (easiest to deploy) | `r_app/`        | `app.R`        | shinyapps.io (R Shiny)   |
+| Shiny for Python       | repo root       | `app.py`       | shinyapps.io (Python)    |
+| Flask (optional)       | repo root       | `flask_app.py` | Render / Heroku / Fly    |
+
+All three share the same SQLite schema, so `analysis.R` / `analysis.py`
+and `simulate.R` / `simulate.py` are drop-in equivalents.
+
+> **Just want a URL as fast as possible?** Follow `r_app/README.md`.
+> The R Shiny version deploys to shinyapps.io in two commands.
+
+---
+
+A web application and analysis pipeline for the two A/B-testing
+experiments described in the project brief:
 
 | # | Experiment            | Variant A                      | Variant B                                  | Metric             |
 |---|-----------------------|--------------------------------|--------------------------------------------|--------------------|
