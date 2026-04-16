@@ -204,7 +204,62 @@ sanity check that the pipeline is wired correctly end-to-end.
 
 ---
 
-## 7. Troubleshooting
+## 7. Deployment
+
+The repo ships with everything needed to deploy to a free host.
+Production serving uses **gunicorn** (see `requirements.txt`, `Procfile`,
+`wsgi.py`).
+
+### 7.1 Render (one-click, recommended)
+
+1. Push this branch to GitHub (already done).
+2. Go to <https://dashboard.render.com/select-repo?type=web>, pick this
+   repo, and Render will detect `render.yaml` automatically. Click
+   **Apply** — it sets the build/start commands, mounts a 1 GB persistent
+   disk at `/var/data`, and pins `AB_DB_PATH` so SQLite survives
+   redeploys.
+3. In ~2 minutes you get a URL like `https://ab-test-website.onrender.com`.
+
+### 7.2 Railway
+
+1. <https://railway.app> → **New Project → Deploy from GitHub repo**.
+2. It auto-detects the `Procfile` and runs `gunicorn wsgi:app`.
+3. Add a volume if you want SQLite persistence; otherwise the DB resets
+   on each redeploy (fine for a short-running class experiment).
+
+### 7.3 Fly.io
+
+```bash
+fly launch --no-deploy                       # accepts the included Dockerfile
+fly volumes create ab_data --size 1          # optional, for DB persistence
+fly deploy
+```
+
+### 7.4 Any Docker host
+
+```bash
+docker build -t ab-test-website .
+docker run -p 8000:8000 -v $(pwd)/data:/data ab-test-website
+# open http://localhost:8000
+```
+
+### 7.5 Quick public URL without deploying (ngrok / cloudflared)
+
+While `python app.py` is running locally:
+
+```bash
+ngrok http 5000
+# or
+cloudflared tunnel --url http://localhost:5000
+```
+
+Share the printed HTTPS URL with classmates. Note that ngrok free URLs
+are temporary — prefer Render/Railway for data collection that spans
+more than one session.
+
+---
+
+## 8. Troubleshooting
 
 * **"Database not found"** — run `python app.py` at least once, or run
   `python simulate.py --n 1 --reset` to create an empty database.
