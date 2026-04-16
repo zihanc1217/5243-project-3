@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluxboard | Experiment-Ready Website</title>
+    <meta
+      name="description"
+      content="A production-style landing page scaffolded for future A/B testing."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="#" data-track="logo_click">Fluxboard</a>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#features" data-track="nav_features_click">Features</a></li>
+            <li><a href="#customers" data-track="nav_customers_click">Customers</a></li>
+            <li><a href="#signup" data-track="nav_signup_click">Get Access</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Built for launch-driven teams</p>
+            <h1 data-copy-key="heroTitle">Plan smarter. Launch faster.</h1>
+            <p class="hero-subtitle" data-copy-key="heroSubtitle">
+              Fluxboard helps product and marketing teams coordinate work, remove blockers,
+              and ship confident launches.
+            </p>
+            <div class="hero-actions">
+              <a
+                id="primaryCta"
+                class="button button-primary"
+                href="#signup"
+                data-track="hero_primary_click"
+                data-copy-key="heroPrimaryCta"
+              >
+                Start free trial
+              </a>
+              <a
+                class="button button-secondary"
+                href="#customers"
+                data-track="hero_secondary_click"
+                data-copy-key="heroSecondaryCta"
+              >
+                See customer stories
+              </a>
+            </div>
+            <p class="hero-proof" data-copy-key="heroProof">
+              Trusted by 2,000+ teams to coordinate product launches.
+            </p>
+          </div>
+          <aside class="hero-card" aria-label="Performance highlights">
+            <h2>Impact from active teams</h2>
+            <ul>
+              <li><span>34%</span> faster release preparation</li>
+              <li><span>26%</span> fewer cross-team blockers</li>
+              <li><span>4.7/5</span> average user satisfaction</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <h2 data-copy-key="benefitsTitle">Why teams choose Fluxboard</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3 data-copy-key="benefit1Title">Single source of truth</h3>
+              <p data-copy-key="benefit1Body">
+                Bring planning docs, deadlines, and owners into one shared workflow.
+              </p>
+            </article>
+            <article class="card">
+              <h3 data-copy-key="benefit2Title">Automated launch checklists</h3>
+              <p data-copy-key="benefit2Body">
+                Standardize quality checks so launches are predictable and repeatable.
+              </p>
+            </article>
+            <article class="card">
+              <h3 data-copy-key="benefit3Title">Clear stakeholder updates</h3>
+              <p data-copy-key="benefit3Body">
+                Share status and risks instantly through lightweight weekly snapshots.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="customers" class="section section-alt">
+        <div class="container">
+          <h2 data-copy-key="testimonialTitle">How customers describe the impact</h2>
+          <blockquote data-copy-key="testimonialQuote">
+            "Fluxboard helped us reduce launch prep chaos dramatically. Everyone knows what to
+            do and when to do it."
+          </blockquote>
+          <p class="citation" data-copy-key="testimonialCitation">
+            Priya Rao, Director of Product Operations at Northbay Tech
+          </p>
+        </div>
+      </section>
+
+      <section id="signup" class="section">
+        <div class="container callout">
+          <div>
+            <h2 data-copy-key="signupTitle">Get early access to our newest release</h2>
+            <p data-copy-key="signupSubtitle">
+              Join our waitlist and we will send onboarding details and launch templates.
+            </p>
+          </div>
+          <form id="signupForm" novalidate>
+            <label class="sr-only" for="emailInput">Email address</label>
+            <input
+              id="emailInput"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@company.com"
+              required
+            />
+            <button
+              id="signupSubmit"
+              class="button button-primary"
+              type="submit"
+              data-track="signup_submit_click"
+              data-copy-key="signupButton"
+            >
+              Join waitlist
+            </button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>Experiment-ready starter website. Replace copy and visuals as needed.</p>
+        <p class="debug-meta">
+          Active variant: <strong id="variantTag">loading...</strong>
+        </p>
+      </div>
+    </footer>
+
+    <script src="ab-testing.js" defer></script>
+  </body>
+</html>
