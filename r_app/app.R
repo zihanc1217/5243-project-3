@@ -232,24 +232,48 @@ server <- function(input, output, session) {
   init_db()
 
   # Session-level state ---------------------------------------------
-  q_initial <- parse_query(session$clientData$url_search)
   uid <- new_user_id()
 
-  variant_discount <- reactiveVal(resolve_variant(q_initial, "discount"))
-  variant_form     <- reactiveVal(resolve_variant(q_initial, "form"))
+  # Start with a random 50/50 assignment.  Once the client reports its
+  # URL (inside the reactive observer below) we override the assignment
+  # if the visitor asked for a specific variant via ?discount=, ?form=,
+  # or legacy ?group=.
+  variant_discount <- reactiveVal(sample(c("A", "B"), 1))
+  variant_form     <- reactiveVal(sample(c("A", "B"), 1))
 
   impressed <- reactiveValues(discount = FALSE, form_length = FALSE)
   msg_newsletter <- reactiveVal("")
   msg_register   <- reactiveVal("")
   stats_tick     <- reactiveVal(0L)
+  url_applied    <- reactiveVal(FALSE)
 
-  user_agent <- isolate({
+  # Reading HTTP headers off session$request is safe outside reactive
+  # contexts because it's a plain list set up on session start.
+  user_agent <- {
     ua <- session$request$HTTP_USER_AGENT
     if (is.null(ua)) "" else ua
-  })
-  referrer <- isolate({
+  }
+  referrer <- {
     r <- session$request$HTTP_REFERER
     if (is.null(r)) "" else r
+  }
+
+  # Once per session, read the URL query string and override the
+  # random assignment if the visitor requested a specific variant.
+  observe({
+    if (url_applied()) return()
+    q <- parse_query(session$clientData$url_search)
+    if (length(q) == 0) {
+      url_applied(TRUE)
+      return()
+    }
+    if (!is.null(q$discount) || !is.null(q$group)) {
+      variant_discount(resolve_variant(q, "discount"))
+    }
+    if (!is.null(q$form) || !is.null(q$group)) {
+      variant_form(resolve_variant(q, "form"))
+    }
+    url_applied(TRUE)
   })
 
   # Record an impression exactly once per tab per session
