@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A/B Test Landing Page</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">QuickExperiment</div>
+      <nav class="topbar-nav">
+        <a href="/">Home</a>
+        <a href="/dashboard.html">Dashboard</a>
+      </nav>
+    </header>
+
+    <main id="landing" class="layout layout-a">
+      <section class="hero">
+        <div class="badge" id="heroBadge">Loading variant...</div>
+        <h1 id="headline">Preparing your experience...</h1>
+        <p id="subheadline">
+          We are assigning your experiment variant and loading the best version for this session.
+        </p>
+        <button id="ctaButton" class="cta">Loading...</button>
+        <p class="helper">
+          Use <code>?variant=A</code> or <code>?variant=B</code> in the URL to force a group.
+        </p>
+      </section>
+
+      <section class="features">
+        <article class="feature-card" data-section="analytics">
+          <h2>Simple analytics</h2>
+          <p>Capture events and conversion metrics without external tooling.</p>
+        </article>
+        <article class="feature-card" data-section="assignment">
+          <h2>Sticky assignment</h2>
+          <p>Users keep the same variant with cookie-based persistence.</p>
+        </article>
+        <article class="feature-card" data-section="evaluation">
+          <h2>Fast evaluation</h2>
+          <p>Use built-in significance checks to compare conversion outcomes.</p>
+        </article>
+      </section>
+
+      <section class="signup">
+        <h2>Sign up simulation</h2>
+        <p>Submitting this form records a conversion event for your assigned variant.</p>
+        <form id="signupForm">
+          <label for="emailInput">Email</label>
+          <input id="emailInput" type="email" placeholder="you@example.com" required />
+          <button type="submit" class="secondary">Submit signup</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/main.js" defer></script>
+  </body>
+</html>
