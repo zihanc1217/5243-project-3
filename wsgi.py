@@ -1,11 +1,13 @@
 """
-WSGI entry point used by production servers (gunicorn, uWSGI, etc).
+WSGI entry point for the legacy Flask implementation (``flask_app.py``).
 
-Ensures the SQLite schema exists before the first request, then
-exposes the Flask ``app`` object under the conventional name.
+The canonical app is the Shiny for Python app in ``app.py`` — use that
+for deployment to shinyapps.io / Posit Connect.  This module exists so
+the project can still be served with ``gunicorn`` on buildpack-style
+hosts (Render, Heroku, Fly).
 """
 
-from app import app, init_db
+from flask_app import app, init_db
 
 init_db()
 

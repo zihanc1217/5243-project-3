@@ -11,7 +11,7 @@ reports/
 *.sqlite
 *.sqlite3
 
-__pycache__/
+rsconnect-python/
 
 .DS_Store
 .idea/

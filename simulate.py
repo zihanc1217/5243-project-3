@@ -35,7 +35,7 @@ from contextlib import closing
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from app import DB_PATH as DEFAULT_DB_PATH, SCHEMA
+from flask_app import DB_PATH as DEFAULT_DB_PATH, SCHEMA
 
 
 def ensure_schema(conn: sqlite3.Connection) -> None:

@@ -1,0 +1,5 @@
+[project]
+name = "ab-test-experiment"
+version = "0.1.0"
+description = "Shiny for Python A/B test web app for Project 3"
+requires-python = ">=3.11,<3.13"
